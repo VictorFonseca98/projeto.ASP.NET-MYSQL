@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CadastroTimes.Models.Times>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+    <a class="btn btn-primary" role="button" asp-action="Create">ADICIONAR NOVO TIME</a>
+</p>
+<table class="table">
+    <thead>
+        <tr class="table-primary">
+            <th >
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulos)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr class="table-success">
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulos)
+            </td>
+            <td>
+              
+
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a type="button" class="btn btn-primary text-right"  asp-action="Edit" asp-route-id="@item.Id">EDITAR</a>
+                    <a type="button" class="btn btn-info text-right" asp-action="Details" asp-route-id="@item.Id">INFO</a>
+                    <a type="button" class="btn btn-danger " asp-action="Delete" asp-route-id="@item.Id">APAGAR</a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
